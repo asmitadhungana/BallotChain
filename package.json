@@ -1,0 +1,25 @@
+{
+  "name": "myelection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "next dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.0.34",
+    "fs-extra": "^9.0.0",
+    "ganache-cli": "^6.9.1",
+    "mocha": "^7.1.1",
+    "next": "^4.1.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "solc": "^0.4.17",
+    "web3": "^1.0.0-beta.26"
+  }
+}

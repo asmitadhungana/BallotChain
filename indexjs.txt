@@ -1,0 +1,63 @@
+//Page: Index.js
+
+import React, { Component } from "react";
+export default () => {
+  return <h1>Election show page</h1>;
+};
+import React, { Component } from "react";
+import factory from "../ethereum/factory";
+import { Card, Button } from "semantic-ui-react";
+import Layout from "../components/Layout";
+
+class BallotIndex extends Component {
+  static async getInitialProps() {
+    const ballots = await factory.methods.getDeployedBallots().call();
+
+    return { ballots };
+  }
+
+  renderBallots() {
+    const items = this.props.ballots.map((address) => {
+      return {
+        header: "Ballot_name",
+        description: address,
+        meta: "At address:",
+        color: "blue",
+      };
+    });
+
+    return <Card.Group itemsPerRow={3} items={items} />;
+  }
+
+  render() {
+    return (
+      <Layout>
+        <div>
+          <link
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+          />
+          <Header
+            as="h1"
+            content="Open Ballots"
+            inverted
+            style={{
+              fontSize: "4em",
+              fontWeight: "normal",
+              marginBottom: 0,
+              marginTop: "3em",
+            }}
+          />
+          {this.renderBallots()}
+          <Button size="Massive" color="Teal" positive>
+            <strong>
+              <h2>Create Ballot</h2>
+            </strong>
+          </Button>
+        </div>
+      </Layout>
+    );
+  }
+}
+
+export default BallotIndex;
