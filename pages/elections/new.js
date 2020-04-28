@@ -3,6 +3,7 @@ import { Container, Input, Form, Button, Message } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 import factory from "../../ethereum/factory";
 import web3 from "../../ethereum/web3";
+import { Link, Router } from "../../routes";
 
 class ElectionNew extends Component {
   state = {
@@ -21,6 +22,14 @@ class ElectionNew extends Component {
       await factory.methods.createBallot(this.state.ballotName).send({
         from: accounts[0],
       });
+
+      let length = (await factory.methods.getLength().call()) - 1;
+
+      let address = await factory.methods.deployedBallots(length).call();
+
+      console.log(address);
+      //CHANGE THIS!!!
+      Router.pushRoute(`/elections/${address}/criteria`);
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Card, Button, Header, Container, Grid } from "semantic-ui-react";
 import factory from "../ethereum/factory";
+import Ballot from "../ethereum/ballot";
 import Layout from "../components/Layout";
-//import {Link} "../routes";
+import { Link } from "../routes";
 
 class BallotIndex extends Component {
-  static async getInitialProps() {
+  static async getInitialProps(props) {
+    //call to the BallotFactory
     const ballots = await factory.methods.getDeployedBallots().call();
 
     return { ballots };
@@ -14,9 +16,18 @@ class BallotIndex extends Component {
   renderBallots() {
     const items = this.props.ballots.map((address) => {
       return {
-        header: "Ballot_name",
-        description: address,
-        meta: "At address:",
+        header: "Ballot Address",
+
+        description: (
+          <Link route={`/elections/${address}`}>
+            <a style={{ color: "Purple" }}>
+              <strong>
+                <h3> Show this ballot </h3>
+              </strong>
+            </a>
+          </Link>
+        ),
+        meta: address,
         color: "blue",
         style: {
           backgroundColor: "DodgerBlue",
@@ -55,16 +66,20 @@ class BallotIndex extends Component {
             <Grid.Column width={13}>{this.renderBallots()}</Grid.Column>
 
             <Grid.Column width={3}>
-              <Button
-                size="Massive"
-                color="Teal"
-                positive
-                style={{ borderRadius: "2px" }}
-              >
-                <strong>
-                  <h2>Create Ballot</h2>
-                </strong>
-              </Button>
+              <Link route="/elections/new">
+                <a>
+                  <Button
+                    size="Massive"
+                    color="Teal"
+                    positive
+                    style={{ borderRadius: "2px" }}
+                  >
+                    <strong>
+                      <h2>Create Ballot</h2>
+                    </strong>
+                  </Button>
+                </a>
+              </Link>
             </Grid.Column>
           </Grid.Row>
         </Grid>
