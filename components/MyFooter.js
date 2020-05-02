@@ -7,7 +7,7 @@ export default () => {
       <Grid.Row>
         <Grid.Column width={16}>
           <Menu fluid widths={3} fixed="bottom" inverted secondary fluid>
-            <Menu.Menu position="center">
+            <Menu.Menu>
               <Menu.Item>
                 <Icon size="small" name="copyright outline">
                   2020.Asmee

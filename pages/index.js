@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React from "react";
 import { Button, Container, Header, Icon } from "semantic-ui-react";
 import Layout from "../components/Layout";
 import { Link } from "../routes";

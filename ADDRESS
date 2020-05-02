@@ -1,4 +1,4 @@
-0x0019653d60c439eEBC33a9163758Baa504E55ba3
+0xC07b7C1c14324619e2aF3A4E5ADAD63c9F72807b
 
 
 TODOs:
@@ -6,3 +6,6 @@ TODOs:
 next@4.1.4
 react
 react-dom
+next-routes
+semantic-ui-react
+semantic-ui-css

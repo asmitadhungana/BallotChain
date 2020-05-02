@@ -19,7 +19,7 @@ class Layout extends Component {
         <Segment
           inverted
           textAlign="center"
-          style={{ minHeight: 800, padding: "1em 0em" }}
+          style={{ minHeight: 1000, padding: "1em 0em" }}
           vertical
         >
           <MyHeader />
