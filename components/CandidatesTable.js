@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
-import Ballot from "../ethereum/ballot";
 
 class CandidatesTable extends Component {
   state = {
